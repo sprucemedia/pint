@@ -1,5 +1,5 @@
 ###
-Anvil.js MVC library
+Anvil.coffee MVC library
 Released under the MIT License
 ###
 
@@ -120,7 +120,6 @@ class Module
 
 class Controller extends Module
   @include Events
-  @include Log
 
   eventSplitter: /^(\S+)\s*(.*)$/
   tag: 'div'
@@ -252,7 +251,7 @@ makeArray = (args) ->
 Anvil = @Anvil   = {}
 module?.exports  = Anvil
 
-Anvil.version    = '1.2.2'
+Anvil.version    = '1.0.0'
 Anvil.isArray    = isArray
 Anvil.isBlank    = isBlank
 Anvil.$          = $
@@ -265,19 +264,11 @@ Anvil.Controller = Controller
 Module.extend.call(Anvil, Events)
 
 # JavaScript compatability
-
-Module.create = Module.sub =
-  Controller.create = Controller.sub =
-    Model.sub = (instances, statics) ->
-      class Result extends this
-      Result.include(instances) if instances
-      Result.extend(statics) if statics
-      Result.unbind?()
-      Result
-
-Model.setup = (name, attributes = []) ->
-  class Instance extends this
-  Instance.configure(name, attributes...)
-  Instance
+Controller.create = Controller.sub = (instances, statics) ->
+    class Result extends this
+    Result.include(instances) if instances
+    Result.extend(statics) if statics
+    Result.unbind?()
+    Result
 
 Anvil.Class = Module
