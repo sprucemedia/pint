@@ -1,5 +1,5 @@
 ###
-Anvil.coffee MVC library
+Pint.coffee MVC library
 Released under the MIT License
 ###
 
@@ -248,20 +248,20 @@ makeArray = (args) ->
 
 # Globals
 
-Anvil = @Anvil   = {}
-module?.exports  = Anvil
+Pint = @Pint   = {}
+module?.exports  = Pint
 
-Anvil.version    = '1.0.0'
-Anvil.isArray    = isArray
-Anvil.isBlank    = isBlank
-Anvil.$          = $
-Anvil.Events     = Events
-Anvil.Module     = Module
-Anvil.Controller = Controller
+Pint.version    = '1.0.0'
+Pint.isArray    = isArray
+Pint.isBlank    = isBlank
+Pint.$          = $
+Pint.Events     = Events
+Pint.Module     = Module
+Pint.Controller = Controller
 
 # Global events
 
-Module.extend.call(Anvil, Events)
+Module.extend.call(Pint, Events)
 
 # JavaScript compatability
 Controller.create = Controller.sub = (instances, statics) ->
@@ -271,4 +271,4 @@ Controller.create = Controller.sub = (instances, statics) ->
     Result.unbind?()
     Result
 
-Anvil.Class = Module
+Pint.Class = Module
